@@ -3,21 +3,22 @@
 
 class Cbaseclass
 {
-
 public:
-     Cbaseclass() = default;
-     Cbaseclass(int x, int y) { std::cout << "base class construtor get called"; }
+     static int i;
+     Cbaseclass() { ++i; };
+     Cbaseclass(int x, int y) { ++i; }
 };
+
+int Cbaseclass::i = 0;
 
 int main()
 {
-     std::vector<Cbaseclass> a(100); // Declare a vector 'a' that can hold 100 instances of "Cbaseclass" class
-     // Loop through each element and initialize it with whatever values you want
-     std::cout << "\nreached here line 15" << std::endl;
-     for (int i = 0; i < 100; i++)
+     std::vector<Cbaseclass> a;
+     a.reserve(100);
+     for (size_t i = 0; i < 100; ++i)
      {
-          a[i] = {1, 2};
+          a.emplace_back(1, 0); // give it arguments of type needed for construction
      }
-
+     std::cout << "i value " << Cbaseclass::i << std::endl;
      return 0;
 }
