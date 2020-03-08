@@ -4,21 +4,35 @@
 class Cbaseclass
 {
 public:
-     static int i;
-     Cbaseclass() { ++i; };
-     Cbaseclass(int x, int y) { ++i; }
-};
+     int x;
+     int *ptr;
+     Cbaseclass() { std::cout << "default constr called .."; };
+     Cbaseclass(int x) : x(x)
+     {
+          ptr = new int;
+          *ptr = x;
+          std::cout << "param const called ..." << std::endl;
+     }
 
-int Cbaseclass::i = 0;
+     Cbaseclass(Cbaseclass &&obj)
+     {
+          std::cout << "move const get called" << std::endl;
+          x = obj.x;
+          this->ptr = obj.ptr;
+          obj.ptr = nullptr;
+     }
+
+     ~Cbaseclass() { delete ptr; }
+};
 
 int main()
 {
      std::vector<Cbaseclass> a;
      a.reserve(100);
-     for (size_t i = 0; i < 100; ++i)
+     for (size_t i = 0; i < 10; ++i)
      {
-          a.emplace_back(1, 0); // give it arguments of type needed for construction
+          a.push_back(Cbaseclass(1)); // give it arguments of type needed for construction
      }
-     std::cout << "i value " << Cbaseclass::i << std::endl;
+
      return 0;
 }
