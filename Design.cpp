@@ -36,4 +36,5 @@ int main()
 {
      CCamera *camObjPtr = new CCamera;
      camObjPtr->initDatabase();
+      //camObjPtr->dbPtr->methodname();
 }
