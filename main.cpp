@@ -1,6 +1,6 @@
 #include <iostream>
 #include "app/processor/processor.hpp"
-#include "app/utils/utils.hpp"
+#include "app/utils/utils.cpp"
 
 int main(){
     Processor processor;
@@ -29,7 +29,5 @@ int main(){
         std::cerr << error->message << std::endl;
         return 0;
     }
-
-    std::cout << "processor closed" << std::endl;
     return 1;
 }

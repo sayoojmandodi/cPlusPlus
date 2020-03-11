@@ -5,7 +5,7 @@
 #include "../database/database.hpp"
 #include "../baumer/baumercamera.hpp"
 #include "../basler/baslercamera.hpp"
-#include "../utils/utils.hpp"
+#include "../utils/utils.cpp"
 
 class Processor{
     private:
@@ -15,6 +15,8 @@ class Processor{
         BaslerCamera baslerCamera;
 
     public:
+        Processor();
+        ~Processor();
         error* Initialize();
         error* Run();
         error* Close();

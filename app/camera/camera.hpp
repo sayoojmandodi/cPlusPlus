@@ -1,5 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include "../utils/utils.cpp"
 
-class Camera{};
+class Camera{
+    public:
+        error* Initialize();
+};

@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-#include "../utils/utils.hpp"
+#include "../utils/utils.cpp"
 
 class Config{
     public:

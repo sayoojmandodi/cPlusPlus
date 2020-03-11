@@ -1,5 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include "../utils/utils.cpp"
 
-class Database{};
+class Database{
+    public:
+        error* Connect();
+};
