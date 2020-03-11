@@ -3,28 +3,37 @@
 class CDatabase
 {
      static CDatabase *dbInstance;
-     CDatabase() = default;
+     int x;
 
-protected:
-     // Add method here so that only friend class can access the methood not obj;
-     // REad from database
-     // insert inito db
-     void open()
+     // Const in Private Section to avoid initialization of obj outside the class.
+     CDatabase() = default;
+     CDatabase(const CDatabase &dbObj) = delete;
+     CDatabase(CDatabase &&dbObj) = delete;
+
+     // Declare all the required method here
+     // Update database method
+     // select method
+     void openCon()
      {
           std::cout << "Check is connection opened and Open connection";
      }
-     void fetch();
+     int fetch();
 
 public:
-     static CDatabase *getInstance()
+     static CDatabase &getInstance()
      {
           if (dbInstance != nullptr)
           {
                dbInstance = new CDatabase;
+               if (dbInstance == nullptr)
+               {
+                    std::cout << "Heap allocation Error \n";
+               }
           }
-          return dbInstance;
+          return *dbInstance;
      }
 
+     // Need to add the classes as friend which is going to do DB operations.
      friend class CCamera;
 };
 
@@ -35,26 +44,23 @@ class CCamera
 
 protected:
      unsigned char *imagebuffer;
-     int exposure;
+     short int exposure;
 
 public:
      // constructor and Destructor
+
      CCamera()
      {
-          CDatabase::getInstance(); // whenever we create an object of CCamera const gets called and  \
+          imagebuffer = new unsigned char[1024 * 1024];
+          ; // whenever we create an object of CCamera const gets called and  \
                                         database instance gets created
-          initDatabase(*CDatabase::dbInstance);
+          CDatabase::getInstance().openCon();
      };
      ~CCamera()
      {
           releaseImageBuffer();
      }
 
-     //
-     void initDatabase(CDatabase &dbObj)
-     {
-          dbObj.open();
-     }
      // Methods to access the protected members
      void releaseImageBuffer()
      {
@@ -62,11 +68,9 @@ public:
      }
      void getExposrue()
      {
-          //  exposure = dbPtr->fetch();
+          exposure = CDatabase::getInstance().fetch();
      }
 
-     // Methods to be implemented in the derived class. Which we assumes implementation \
-         will be different func name is similar
      virtual void initCam() = 0;
 };
 
@@ -84,9 +88,5 @@ int main()
      CCamera *camObjPtr = new CBaumerCam; //constr of CBaumerCam and CCamera gets called\
                                            CCcam constrt creates db instance and open connection.
      camObjPtr->initCam();
-
-     // CCamera is  an abstract class, eventhough we can't create an obje of that class we can create a pointer \
-     object for that class which points to the derived camera. and we can call its functin as shown above we \
-     discussed
      return 0;
 }
