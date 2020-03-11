@@ -27,7 +27,7 @@ public:
 
 class CCamera
 {
-
+// Why dont we declare CDatabase instance as a private memeber in this class
 protected:
      unsigned char *imagebuffer;
      int srNo;
