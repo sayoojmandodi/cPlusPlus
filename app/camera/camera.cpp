@@ -1,6 +1,12 @@
-#include "camera.hpp"
+#ifndef CAMERA_H
+#define CAMERA_H
 
-error* Camera::Initialize(){
-    std::cout << "initializing camera" << std::endl;
-    return nullptr;
-}
+#include <iostream>
+#include "../utils/utils.cpp"
+
+class Camera{
+    public:
+        virtual error* Initialize() = 0;
+};
+
+#endif

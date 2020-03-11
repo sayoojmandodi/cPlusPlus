@@ -2,8 +2,9 @@
 
 #include <iostream>
 #include "../utils/utils.cpp"
+#include "../camera/camera.cpp"
 
-class BaumerCamera{
+class BaumerCamera : public Camera{
     public:
         error* Initialize();
 };
