@@ -1,6 +1,7 @@
 #include <iostream>
 
-class CDatabase
+// singletonclass
+class CDatabasels
 {
 
 protected:
@@ -16,7 +17,7 @@ class SingletonWrapper : private CDatabase
                                    check if it is NULL or not and create a new instance based on that
      SingletonWrapper *DBgetInstance()
      {
-          return &CDBinstance;
+          return &CDBinstance; // I will change this to declaring a obj in the heap ...
      }
      friend class CCamera;
 
