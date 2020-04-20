@@ -1,13 +1,14 @@
 #include <iostream>
 #include <vector>
 
+class Cderived;
 class Cbaseclass
 {
 public:
      int x;
      int *ptr;
-     Cbaseclass() { std::cout << "default constr called .."; };
-     Cbaseclass(int x) : x(x)
+     Cbaseclass() : x(0), ptr(nullptr) { std::cout << "default constr called .."; };
+     Cbaseclass(int i) : x(i)
      {
           ptr = new int;
           *ptr = x;
@@ -28,6 +29,12 @@ public:
      }
 };
 
+class Cderived : public Cbaseclass
+{
+public:
+     Cderived() = default;
+};
+
 int main()
 {
      std::vector<Cbaseclass> a;
@@ -41,10 +48,6 @@ int main()
      {
           a.push_back(Cbaseclass(1)); // give it arguments of type needed for construction
      }
-
-     // int *testPtr = new int;
-     // delete testPtr;
-     // delete testPtr;
 
      return 0;
 }
