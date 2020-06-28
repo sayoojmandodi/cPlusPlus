@@ -1,0 +1,51 @@
+
+Software Requirements Specification
+for
+High Availability setup for MongoDB cluster
+Version 1.0 approved
+Prepared by Shebin Babu 
+  Prepared on :6/28/2020 
+ 
+Table of Contents
+Table of Contents	
+Revision History	
+1.	Introduction	
+1.1	Purpose	
+1.2	Project Scope	
+2.	Overall Description	
+2.1	Product Features	
+2.2	Operating Environment	
+2.3	Design and Implementation Constraints	
+2.4	User Documentation	
+ 
+1.     Introduction
+1.1     Purpose 
+The purpose of this document is to present the requirement of SIGNY(full name if reqired) MongoDB cluster model.
+1.2     Project Scope
+This software setup is capable of providing a high availability setup for MongoDB cluster which can be used  so and so ( Ndhalm nalla kattak ulla words sentence illey ninta ee pipleling poley okay ull 
+Idh evda beneft chaiyan okay ullah.. Nee normally deviops kand varna rand term ittit ullah sentence mention chaiy evda .  Final edhan expect chaiynen ayudhiko…. Edhn avasanam ninta work complete ayitilenki, ethra tholam akki vech mattendi verum . 
+
+
+Example : “<Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here. An SRS that specifies the next release of an evolving product should contain its own scope statement as a subset of the long-term strategic product vision.>”
+2.     Overall Description
+2.1     Product Features
+i)                    Dockerized with docker-compose
+ii)                 Auto failover configuration
+iii)               Health Monitor or MongoDB service
+iv)                Replica set configuration
+v)                  Authentication enabled with user-defined mongo key
+
+<Summarize the major features the product contains or the significant functions that it performs or lets the user perform. Details will be provided in Section 3, so only a high level summary  is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or a class diagram, is often effective. “ we need to make a flow chart or any diagram once you finish your work and paste it here. “
+
+
+2.2     Operating Environment
+      Operating System: Ubuntu 20.04 (Tested and working fine ) Haven’t tested with other Ubuntu  versions
+       Docker Version   :
+       
+
+Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.>
+2.3     Design and Implementation Constraints
+<Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).>
+2.4     User Documentation
+         Regarding the overall working and dependencies which will suffice the software operation has been listed down in README file , which will be shared along with the software package.
+
