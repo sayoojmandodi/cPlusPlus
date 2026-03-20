@@ -1,3 +1,6 @@
 a.out
 launch.json
 task.json
+.vscode
+.vs
+out
